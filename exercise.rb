@@ -24,7 +24,6 @@ end
 # Ask user if they want free seat
 def want_free_seat?(array_of_seats)
   array_of_seats.each_with_index do |row, row_index|
-    user_name = nil
 
     row.each_with_index do |seat, seat_index|
       if seat == nil
@@ -35,19 +34,11 @@ def want_free_seat?(array_of_seats)
           puts "What is your name?"
           user_name = gets.chomp
           row[seat_index] = user_name
+
+          return array_of_seats
         end
       end
-
-      if user_name
-        user_name
-        break
-      end
     end
-
-    if user_name != nil
-      break
-    end
-
   end
 end
 
